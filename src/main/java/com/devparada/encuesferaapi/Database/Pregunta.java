@@ -8,8 +8,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table
-public class Preguntas {
+@Table(name = "preguntas")
+public class Pregunta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
