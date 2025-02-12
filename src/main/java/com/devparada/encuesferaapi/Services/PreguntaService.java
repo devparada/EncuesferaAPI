@@ -35,9 +35,12 @@ public class PreguntaService {
     public ResponseEntity<?> crearPregunta(@RequestBody Pregunta preguntaCreada) {
         preguntaCreada.setIdPregunta(null);
         preguntaCreada.setFechaPregunta(null);
-        if (preguntaRepository.save(preguntaCreada) == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al crear la pregunta");
+        try {
+            preguntaRepository.save(preguntaCreada);
+            return ResponseEntity.ok(preguntaCreada);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error al crear la pregunta: " + e.getMessage());
         }
-        return ResponseEntity.ok(preguntaCreada);
     }
 }
