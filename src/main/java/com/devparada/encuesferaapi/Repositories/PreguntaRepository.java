@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface PreguntaRepository extends JpaRepository<Pregunta, Integer> {
-    @Query("SELECT p FROM Pregunta p WHERE CAST(p.fechaPregunta AS LocalDate) = :fecha")
-    Pregunta findPreguntaByFecha(@Param("fecha") LocalDate fecha);
+    @Query("SELECT p.textoPregunta FROM Pregunta p WHERE CAST(p.fechaPregunta AS LocalDate) = :fecha")
+    String findTextoPreguntaByFecha(@Param("fecha") LocalDate fecha);
 }

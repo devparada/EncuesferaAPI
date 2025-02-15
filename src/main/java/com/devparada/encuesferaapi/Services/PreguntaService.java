@@ -1,5 +1,7 @@
 package com.devparada.encuesferaapi.Services;
 
+import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 import java.time.LocalDate;
 import com.devparada.encuesferaapi.Database.Pregunta;
@@ -26,9 +28,15 @@ public class PreguntaService {
     }
 
     @GetMapping("/dia")
-    public Pregunta preguntaDia() {
+    public ResponseEntity<Map<String, String>> preguntaDia() {
         LocalDate fechaHoy = LocalDate.now();
-        return preguntaRepository.findPreguntaByFecha(fechaHoy);
+        String textoPregunta = preguntaRepository.findTextoPreguntaByFecha(fechaHoy);
+        if (textoPregunta == null) {
+            return ResponseEntity.notFound().build();
+        }
+        Map<String, String> respuesta = new HashMap<>();
+        respuesta.put("textoPregunta", textoPregunta);
+        return ResponseEntity.ok(respuesta);
     }
 
     @PostMapping
