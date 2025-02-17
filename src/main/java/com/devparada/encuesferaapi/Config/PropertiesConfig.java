@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class PropertiesConfig {
 
     private List<String> urlcors;
+    private Integer httpport;
 
     public List<String> getUrlcors() {
         return urlcors;
@@ -16,5 +17,13 @@ public class PropertiesConfig {
 
     public void setUrlcors(List<String> urlcors) {
         this.urlcors = urlcors;
+    }
+
+    public Integer getHttpport() {
+        return httpport;
+    }
+
+    public void setHttpport(Integer httpport) {
+        this.httpport = httpport;
     }
 }

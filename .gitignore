@@ -7,6 +7,10 @@ target/
 ### Archivo de configuración de producción ###
 src/main/resources/application.properties
 
+### Certificados ###
+certificates
+src/main/resources/certificate.p12
+
 ### STS ###
 .apt_generated
 .classpath
