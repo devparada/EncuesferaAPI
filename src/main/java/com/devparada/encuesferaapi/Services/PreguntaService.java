@@ -1,9 +1,9 @@
 package com.devparada.encuesferaapi.Services;
 
 import java.util.Map;
-import java.util.HashMap;
 import java.util.List;
 import java.time.LocalDate;
+import java.util.Collections;
 import com.devparada.encuesferaapi.Database.Pregunta;
 import com.devparada.encuesferaapi.Repositories.PreguntaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +29,12 @@ public class PreguntaService {
 
     @GetMapping("/dia")
     public ResponseEntity<Map<String, String>> preguntaDia() {
-        LocalDate fechaHoy = LocalDate.now();
-        String textoPregunta = preguntaRepository.findTextoPreguntaByFecha(fechaHoy);
-        if (textoPregunta == null) {
-            return ResponseEntity.notFound().build();
-        }
-        Map<String, String> respuesta = new HashMap<>();
-        respuesta.put("textoPregunta", textoPregunta);
-        return ResponseEntity.ok(respuesta);
+        return obtenerRespuesta("textoPregunta", preguntaRepository.findTextoPreguntaByFecha(LocalDate.now()));
+    }
+
+    @GetMapping("/dia/id")
+    public ResponseEntity<Map<String, String>> preguntaIdDia() {
+        return obtenerRespuesta("textoPregunta", preguntaRepository.findIdPreguntaByFecha(LocalDate.now()));
     }
 
     @PostMapping
@@ -50,5 +48,12 @@ public class PreguntaService {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error al crear la pregunta: " + e.getMessage());
         }
+    }
+
+    private ResponseEntity<Map<String, String>> obtenerRespuesta(String clave, String valor) {
+        if (valor == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(Collections.singletonMap(clave, valor));
     }
 }
