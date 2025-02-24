@@ -1,4 +1,4 @@
-package com.devparada.encuesferaapi.Services;
+package com.devparada.encuesferaapi.Controllers;
 
 import java.util.Map;
 import java.util.List;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
 @RequestMapping("/pregunta")
-public class PreguntaService {
+public class PreguntaController {
 
     @Autowired
     private PreguntaRepository preguntaRepository;

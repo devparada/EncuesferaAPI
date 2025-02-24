@@ -1,4 +1,4 @@
-package com.devparada.encuesferaapi.Services;
+package com.devparada.encuesferaapi.Controllers;
 
 import java.util.List;
 import com.devparada.encuesferaapi.Database.Opcion;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/opciones")
-public class OpcionService {
+public class OpcionController {
 
     @Autowired
     private OpcionRepository opcionRepository;
