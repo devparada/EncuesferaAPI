@@ -34,7 +34,7 @@ public class PreguntaService {
 
     @GetMapping("/dia/id")
     public ResponseEntity<Map<String, String>> preguntaIdDia() {
-        return obtenerRespuesta("textoPregunta", preguntaRepository.findIdPreguntaByFecha(LocalDate.now()));
+        return obtenerRespuesta("idPregunta", preguntaRepository.findIdPreguntaByFecha(LocalDate.now()));
     }
 
     @PostMapping
