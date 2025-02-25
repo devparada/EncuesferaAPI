@@ -3,7 +3,7 @@ package com.devparada.encuesferaapi.Repositories;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.devparada.encuesferaapi.Database.Opcion;
-
+import com.devparada.encuesferaapi.Projections.OpcionProjection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 

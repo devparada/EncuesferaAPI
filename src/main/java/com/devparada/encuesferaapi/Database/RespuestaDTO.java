@@ -8,7 +8,7 @@ public class RespuestaDTO {
     @JsonProperty("idPregunta")
     private Integer idPreguntaPreguntas;
     @JsonProperty("option")
-    private Integer idOpcionOpciones;
+    private Opcion idOpcionOpciones;
 
     public String getIdUsuarioUsuarios() {
         return idUsuarioUsuarios;
@@ -26,11 +26,11 @@ public class RespuestaDTO {
         this.idPreguntaPreguntas = idPreguntaPreguntas;
     }
 
-    public Integer getIdOpcionOpciones() {
+    public Opcion getIdOpcionOpciones() {
         return idOpcionOpciones;
     }
 
-    public void setIdOpcionOpciones(Integer idOpcionOpciones) {
+    public void setIdOpcionOpciones(Opcion idOpcionOpciones) {
         this.idOpcionOpciones = idOpcionOpciones;
     }
 }

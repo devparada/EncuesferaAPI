@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,7 +18,9 @@ public class Respuesta {
     private Integer idRespuesta;
     private String idUsuarioUsuarios;
     private Integer idPreguntaPreguntas;
-    private Integer idOpcionOpciones;
+    @ManyToOne
+    @JoinColumn(name = "idOpcionOpciones")
+    private Opcion idOpcionOpciones;
     private ZonedDateTime fechaRespuesta;
 
     public Integer getIdRespuesta() {
@@ -43,11 +47,11 @@ public class Respuesta {
         this.idPreguntaPreguntas = idPreguntaPreguntas;
     }
 
-    public Integer getIdOpcionOpciones() {
+    public Opcion getIdOpcionOpciones() {
         return idOpcionOpciones;
     }
 
-    public void setIdOpcionOpciones(Integer idOpcionOpciones) {
+    public void setIdOpcionOpciones(Opcion idOpcionOpciones) {
         this.idOpcionOpciones = idOpcionOpciones;
     }
 
