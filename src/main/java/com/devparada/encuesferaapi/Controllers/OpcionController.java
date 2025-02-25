@@ -2,7 +2,7 @@ package com.devparada.encuesferaapi.Controllers;
 
 import java.util.List;
 import com.devparada.encuesferaapi.Database.Opcion;
-import com.devparada.encuesferaapi.Repositories.OpcionProjection;
+import com.devparada.encuesferaapi.Projections.OpcionProjection;
 import com.devparada.encuesferaapi.Repositories.OpcionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

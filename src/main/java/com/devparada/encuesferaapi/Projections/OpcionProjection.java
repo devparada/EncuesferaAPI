@@ -1,4 +1,4 @@
-package com.devparada.encuesferaapi.Repositories;
+package com.devparada.encuesferaapi.Projections;
 
 public interface OpcionProjection {
     Integer getIdOpcion();
