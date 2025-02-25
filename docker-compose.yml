@@ -1,0 +1,19 @@
+services:
+  java:
+    image: encuesferaapi:latest
+    container_name: encuesferaapi
+    ports:
+      - 8000:8000
+      - 8081:8081
+      - 8193:8193
+    # Reinicia cuando falla excepto cuando el apagado es manual
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - encuesferanet
+
+networks:
+  encuesferanet:
+    driver: bridge
